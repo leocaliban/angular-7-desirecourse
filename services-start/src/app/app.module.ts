@@ -6,8 +6,6 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
-import { LoggingService } from './services/logging.service';
-import { AccountsService } from './services/accounts.service';
 
 @NgModule({
   declarations: [
@@ -20,10 +18,7 @@ import { AccountsService } from './services/accounts.service';
     FormsModule,
     HttpModule
   ],
-  providers: [
-    LoggingService,
-    AccountsService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
