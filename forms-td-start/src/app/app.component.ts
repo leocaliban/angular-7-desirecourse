@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
 
   @ViewChild('form') signupForm: NgForm;
+  defaultOption = 'pet';
 
   suggestUserName() {
     const suggestedName = 'Superuser';
