@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit)="onSubmit()" #form="ngForm">
+
         <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
           <div class="form-group">
             <label for="username">Username</label>
@@ -28,6 +29,14 @@
           <textarea name="questionAnswer" cols="30" [(ngModel)]="answer"></textarea>
         </div>
         <p>Your reply: {{answer}}</p>
+
+        <div class="radio" *ngFor="let gender of genders">
+          <label>
+            <input type="radio" name="gender" ngModel [value]="gender" required>
+            {{gender}}
+          </label>
+
+        </div>
         <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
       </form>
     </div>
