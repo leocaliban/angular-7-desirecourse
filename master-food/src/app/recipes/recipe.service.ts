@@ -22,7 +22,7 @@ export class RecipeService {
       ]),
     new Recipe(
       'Pepperoni Pizza', 'What else you need to say?',
-      'https://www.casinopauma.com/wp-content/uploads/2016/11/pepperoni-pizza.png',
+      'http://www.hammockpizza.co/image/cache/pizza/pepperoni%20pizza-800x800.png',
       [
         new Ingredient('Pepperoni', 3),
         new Ingredient('Cheese', 5),
