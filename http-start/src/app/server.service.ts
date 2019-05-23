@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
+import { headersToString } from 'selenium-webdriver/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,9 @@ export class ServerService {
   ) { }
 
   storeServers(servers: any[]) {
-    return this.http.post(this.URL, servers);
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(this.URL, servers, { headers: headers });
   }
 }
