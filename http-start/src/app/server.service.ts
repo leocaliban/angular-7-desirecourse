@@ -19,4 +19,8 @@ export class ServerService {
     });
     return this.http.post(this.URL, servers, { headers: headers });
   }
+
+  getServers() {
+    return this.http.get(this.URL);
+  }
 }
