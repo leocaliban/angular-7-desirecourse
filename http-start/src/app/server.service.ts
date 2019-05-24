@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { headersToString } from 'selenium-webdriver/http';
+import 'rxjs/Rx';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,9 @@ export class ServerService {
   }
 
   getServers() {
-    return this.http.get(this.URL);
+    return this.http.get(this.URL).map((response) => {
+      const data = response.json();
+      return data;
+    });
   }
 }
