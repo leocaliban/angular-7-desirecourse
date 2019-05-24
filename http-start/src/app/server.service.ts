@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/Rx';
 
 @Injectable({
@@ -17,13 +17,17 @@ export class ServerService {
     const headers = new Headers({
       'Content-Type': 'application/json'
     });
-    return this.http.post(this.URL, servers, { headers: headers });
+    return this.http.put(this.URL, servers, { headers: headers });
   }
 
   getServers() {
-    return this.http.get(this.URL).map((response) => {
-      const data = response.json();
-      return data;
-    });
+    return this.http.get(this.URL)
+      .map((response: Response) => {
+        const data = response.json();
+        for (const server of data) {
+          server.name = 'FETCHED_' + server.name;
+        }
+        return data;
+      });
   }
 }
