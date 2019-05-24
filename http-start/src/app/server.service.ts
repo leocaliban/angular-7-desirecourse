@@ -36,4 +36,11 @@ export class ServerService {
         }
       );
   }
+
+  getAppName() {
+    return this.http.get('https://desire-course.firebaseio.com/appName.json')
+      .map((response: Response) => {
+        return response.json();
+      })
+  }
 }
