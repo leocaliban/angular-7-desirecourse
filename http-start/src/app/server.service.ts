@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,11 @@ export class ServerService {
           server.name = 'FETCHED_' + server.name;
         }
         return data;
-      });
+      })
+      .catch(
+        (error: Response) => {
+          return Observable.throw('OCORREU UM ERRO NA REQUISIÇÃO');
+        }
+      );
   }
 }
