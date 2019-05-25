@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
 import { map } from 'rxjs/operators';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +14,18 @@ export class DataStorageService {
 
   constructor(
     private http: Http,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private authService: AuthService
   ) { }
 
   storeRecipes() {
-    return this.http.put(`${this.URL}recipes.json`, this.recipeService.getRecipes());
+    const userToken = this.authService.getToken();
+    return this.http.put(`${this.URL}recipes.json?auth=${userToken}`, this.recipeService.getRecipes());
   }
 
   getRecipes() {
-    return this.http.get(`${this.URL}recipes.json`)
+    const userToken = this.authService.getToken();
+    return this.http.get(`${this.URL}recipes.json?auth=${userToken}`)
       .pipe(
         map((response: Response) => {
           const recipes: Recipe[] = response.json();
