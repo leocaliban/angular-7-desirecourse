@@ -11,8 +11,8 @@ import { FormsModule } from '@angular/forms';
     ShoppingEditComponent,
   ],
   imports: [
+    FormsModule,
     CommonModule,
-    FormsModule
   ]
 })
 export class ShoppingListModule { }
