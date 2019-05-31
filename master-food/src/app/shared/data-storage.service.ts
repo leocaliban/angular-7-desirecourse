@@ -1,13 +1,12 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Recipe } from '../recipes/recipe.model';
 import { AuthService } from '../auth/auth.service';
 import { RecipeService } from '../recipes/recipe.service';
 
 import { map } from 'rxjs/operators';
-import { Request } from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
