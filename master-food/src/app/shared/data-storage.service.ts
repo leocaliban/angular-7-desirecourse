@@ -39,11 +39,10 @@ export class DataStorageService {
   }
 
   getRecipes() {
-    const userToken = this.authService.getToken();
     return this.http.get<Recipe[]>(`${this.URL}recipes.json`,
       {
         observe: 'body',
-        params: new HttpParams().set('auth', userToken)
+        responseType: 'json'
       })
       .pipe(
         map((recipes) => {
