@@ -8,8 +8,9 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
-import { StoreModule } from '@ngrx/store';
 import { shoppingListReducer } from './shopping-list/store/shopping-list.reducers';
+
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [

@@ -8,7 +8,7 @@ export class AddIngredient implements Action {
 
   readonly type: string = ADD_INGREDIENT;
 
-  payload: Ingredient;
+  constructor(public payload: Ingredient) { }
 
 }
 
