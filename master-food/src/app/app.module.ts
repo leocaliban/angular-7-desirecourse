@@ -5,10 +5,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
+import { REDUCERS } from './ngrx-store/app.reducers';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
-import { shoppingListReducer } from './shopping-list/store/shopping-list.reducers';
 
 import { StoreModule } from '@ngrx/store';
 
@@ -24,7 +24,7 @@ import { StoreModule } from '@ngrx/store';
     AppRoutingModule,
     HttpClientModule,
     ShoppingListModule,
-    StoreModule.forRoot({ shoppingList: shoppingListReducer }),
+    StoreModule.forRoot(REDUCERS),
   ],
   bootstrap: [AppComponent]
 })
