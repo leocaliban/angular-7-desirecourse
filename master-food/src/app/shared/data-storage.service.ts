@@ -23,7 +23,7 @@ export class DataStorageService {
 
   storeRecipes() {
 
-    const userToken = this.authService.getToken();
+    const userToken = null;
     // const req = new HttpRequest('PUT', `${this.URL}recipes.json`,
     //    this.recipeService.getRecipes(), {
     //    reportProgress:true, params: new HttpParams().set('auth', userToken)
