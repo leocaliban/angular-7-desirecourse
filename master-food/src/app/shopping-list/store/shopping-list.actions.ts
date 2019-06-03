@@ -33,6 +33,7 @@ export class UpdateIngredient implements Action {
 export class DeleteIngredient implements Action {
 
   readonly type: string = DELETE_INGREDIENT;
+  constructor(public payload?: any) { }
 }
 
 export class StartEdit implements Action {
@@ -44,6 +45,7 @@ export class StartEdit implements Action {
 
 export class StopEdit implements Action {
   readonly type: string = STOP_EDIT;
+  constructor(public payload?: any) { }
 }
 
 export type ShoppingListActions =
