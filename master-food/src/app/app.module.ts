@@ -7,10 +7,12 @@ import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { REDUCERS } from './ngrx-store/app.reducers';
 import { SharedModule } from './shared/shared.module';
+import { AuthEffects } from './auth/store/auth.effects';
 import { AppRoutingModule } from './app-routing.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,10 @@ import { StoreModule } from '@ngrx/store';
     AuthModule,
     SharedModule,
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
+    AppRoutingModule,
     ShoppingListModule,
+    EffectsModule.forRoot([AuthEffects]),
     StoreModule.forRoot(REDUCERS),
   ],
   bootstrap: [AppComponent]
