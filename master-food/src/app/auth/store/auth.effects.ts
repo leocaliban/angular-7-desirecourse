@@ -5,6 +5,7 @@ import * as AuthActions from './auth.actions';
 import * as firebase from 'firebase';
 import { map, switchMap, mergeMap } from 'rxjs/operators';
 import { from } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthEffects {
@@ -44,6 +45,7 @@ export class AuthEffects {
       return from(firebase.auth().currentUser.getIdToken());
     }),
     mergeMap((token: string) => {
+      this.route.navigate(['/']);
       return [
         { type: AuthActions.SIGNIN },
         { type: AuthActions.SET_TOKEN, payload: token }
@@ -53,5 +55,8 @@ export class AuthEffects {
 
 
 
-  constructor(private actions$: Actions) { }
+  constructor(
+    private route: Router,
+    private actions$: Actions,
+  ) { }
 }

@@ -24,6 +24,5 @@ export class SigninComponent implements OnInit {
       username: email,
       password
     }));
-
   }
 }
