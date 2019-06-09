@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 
-import { AuthService } from '../../auth/auth.service';
 import { DataStorageService } from '../../shared/data-storage.service';
+
+import * as AuthActions from '../../auth/store/auth.actions';
 import * as fromApp from '../../ngrx-store/app.reducers';
 import * as fromAuth from '../../auth/store/auth.reducers';
 
@@ -19,7 +20,6 @@ export class HeaderComponent implements OnInit {
   authState: Observable<fromAuth.State>;
 
   constructor(
-    public authService: AuthService,
     private dataStorageService: DataStorageService,
     private store: Store<fromApp.AppState>
   ) { }
@@ -41,6 +41,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() {
-    this.authService.logout();
+    this.store.dispatch(new AuthActions.Logout());
   }
 }
