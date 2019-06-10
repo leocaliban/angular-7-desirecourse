@@ -7,8 +7,8 @@ export const SET_RECIPES = 'SET_RECIPES';
 export const ADD_RECIPE = 'ADD_RECIPE';
 export const UPDATE_RECIPE = 'UPDATE_RECIPE';
 export const DELETE_RECIPE = 'DELETE_RECIPE';
-export const START_EDIT = 'START_EDIT';
-export const STOP_EDIT = 'STOP_EDIT';
+export const STORE_RECIPES = 'STORE_RECIPES';
+export const FETCH_RECIPES = 'FETCH_RECIPES';
 
 export class SetRecipes implements Action {
 
@@ -40,16 +40,20 @@ export class DeleteRecipe implements Action {
   constructor(public payload: any) { }
 }
 
-export class StartEdit implements Action {
-
-  readonly type: string = START_EDIT;
-
-  constructor(public payload: any) { }
-}
-
-export class StopEdit implements Action {
-  readonly type: string = STOP_EDIT;
+export class StoreRecipes implements Action {
+  readonly type: string = STORE_RECIPES;
   constructor(public payload?: any) { }
 }
 
-export type RecipeActions = SetRecipes | AddRecipe | UpdateRecipe | DeleteRecipe;
+export class FetchRecipes implements Action {
+  readonly type: string = FETCH_RECIPES;
+  constructor(public payload?: any) { }
+}
+
+export type RecipeActions =
+  SetRecipes   |
+  AddRecipe    |
+  UpdateRecipe |
+  DeleteRecipe |
+  StoreRecipes |
+  FetchRecipes;

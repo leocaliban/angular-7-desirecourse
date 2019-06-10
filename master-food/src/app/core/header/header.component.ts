@@ -3,9 +3,10 @@ import { Response } from '@angular/http';
 
 import { DataStorageService } from '../../shared/data-storage.service';
 
-import * as AuthActions from '../../auth/store/auth.actions';
 import * as fromApp from '../../ngrx-store/app.reducers';
 import * as fromAuth from '../../auth/store/auth.reducers';
+import * as AuthActions from '../../auth/store/auth.actions';
+import * as RecipeActions from '../../recipes/ngrx-store/recipe.actions';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -37,7 +38,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onFetchData() {
-    this.dataStorageService.getRecipes();
+    this.store.dispatch(new RecipeActions.FetchRecipes());
   }
 
   onLogout() {

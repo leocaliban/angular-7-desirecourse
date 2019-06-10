@@ -12,7 +12,9 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.component';
 
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { recipeReducer } from './ngrx-store/recipe.reducers';
+import { RecipeEffects } from './ngrx-store/recipe.effects';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { recipeReducer } from './ngrx-store/recipe.reducers';
     CommonModule,
     ReactiveFormsModule,
     RecipesRoutingModule,
+    EffectsModule.forFeature([RecipeEffects]),
     StoreModule.forFeature('recipes', recipeReducer),
   ]
 })
