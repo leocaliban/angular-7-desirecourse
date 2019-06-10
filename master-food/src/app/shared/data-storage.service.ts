@@ -22,17 +22,18 @@ export class DataStorageService {
   storeRecipes() {
 
     const userToken = null;
-    // const req = new HttpRequest('PUT', `${this.URL}recipes.json`,
-    //    this.recipeService.getRecipes(), {
-    //    reportProgress:true, params: new HttpParams().set('auth', userToken)
-    // });
-    // return this.http.request(req);
     return this.http.put(`${this.URL}recipes.json`,
       this.recipeService.getRecipes(),
       {
         observe: 'body',
         params: new HttpParams().set('auth', userToken)
       });
+    // const req = new HttpRequest('PUT', `${this.URL}recipes.json`,
+    //    this.recipeService.getRecipes(), {
+    //    reportProgress:true, params: new HttpParams().set('auth', userToken)
+    // });
+    // return this.http.request(req);
+
   }
 
   getRecipes() {

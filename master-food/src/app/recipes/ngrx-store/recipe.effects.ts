@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 
 import * as RecipeActions from '../ngrx-store/recipe.actions';
+import * as fromRecipe from '../ngrx-store/recipe.reducers';
 
 import { from } from 'rxjs';
-import { map, switchMap, mergeMap, tap } from 'rxjs/operators';
+import { map, switchMap, mergeMap, tap, withLatestFrom } from 'rxjs/operators';
 import { Recipe } from '../recipe.model';
+import { Store } from '@ngrx/store';
 
 @Injectable()
 export class RecipeEffects {
@@ -37,8 +39,30 @@ export class RecipeEffects {
         };
       })
     );
+
+  @Effect({ dispatch: false })
+  recipeStore = this.actions$
+    .pipe(
+      ofType(RecipeActions.STORE_RECIPES),
+      withLatestFrom(this.store.select('recipes')),
+      switchMap(([action, state]) => {
+        const userToken = null;
+        return this.http.put(`${this.URL}recipes.json`,
+          state.recipes,
+          {
+            observe: 'body',
+            params: new HttpParams().set('auth', userToken)
+          }
+        );
+      }),
+    );
+
+
+
+
   constructor(
     private http: HttpClient,
     private actions$: Actions,
+    private store: Store<fromRecipe.FeatureState>
   ) { }
 }
