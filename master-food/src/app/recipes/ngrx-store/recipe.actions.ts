@@ -37,14 +37,14 @@ export class DeleteRecipe implements Action {
 
   readonly type: string = DELETE_RECIPE;
 
-  constructor(public payload: number) { }
+  constructor(public payload: any) { }
 }
 
 export class StartEdit implements Action {
 
   readonly type: string = START_EDIT;
 
-  constructor(public payload: number) { }
+  constructor(public payload: any) { }
 }
 
 export class StopEdit implements Action {
