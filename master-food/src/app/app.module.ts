@@ -9,13 +9,13 @@ import { REDUCERS } from './ngrx-store/app.reducers';
 import { SharedModule } from './shared/shared.module';
 import { AuthEffects } from './auth/store/auth.effects';
 import { AppRoutingModule } from './app-routing.module';
+import { environment } from 'src/environments/environment';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -25,10 +25,10 @@ import { environment } from 'src/environments/environment';
     CoreModule,
     AuthModule,
     SharedModule,
-    BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ShoppingListModule,
+    BrowserModule.withServerTransition({ appId: 'master-food' }),
     EffectsModule.forRoot([AuthEffects]),
     StoreModule.forRoot(REDUCERS),
     StoreRouterConnectingModule,

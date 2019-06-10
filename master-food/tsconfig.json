@@ -15,9 +15,17 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "types": [],
     "lib": [
       "es2018",
       "dom"
     ]
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ],
+  "angularCompilerOptions": {
+    "entryModule": "src/app/app.server.module#AppServerModule"
   }
 }
