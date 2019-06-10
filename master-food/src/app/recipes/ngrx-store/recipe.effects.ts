@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 
-import * as RecipeActions from '../ngrx-store/recipe.actions';
-import * as fromRecipe from '../ngrx-store/recipe.reducers';
-
-import { from } from 'rxjs';
-import { map, switchMap, mergeMap, tap, withLatestFrom } from 'rxjs/operators';
 import { Recipe } from '../recipe.model';
+import * as fromRecipe from '../ngrx-store/recipe.reducers';
+import * as RecipeActions from '../ngrx-store/recipe.actions';
+
 import { Store } from '@ngrx/store';
+import { map, switchMap, withLatestFrom } from 'rxjs/operators';
 
 @Injectable()
 export class RecipeEffects {

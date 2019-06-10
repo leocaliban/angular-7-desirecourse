@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
-
-import { DataStorageService } from '../../shared/data-storage.service';
 
 import * as fromApp from '../../ngrx-store/app.reducers';
 import * as fromAuth from '../../auth/store/auth.reducers';
 import * as AuthActions from '../../auth/store/auth.actions';
 import * as RecipeActions from '../../recipes/ngrx-store/recipe.actions';
 
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +18,6 @@ export class HeaderComponent implements OnInit {
   authState: Observable<fromAuth.State>;
 
   constructor(
-    private dataStorageService: DataStorageService,
     private store: Store<fromApp.AppState>
   ) { }
 
