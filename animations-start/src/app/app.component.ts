@@ -51,7 +51,17 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
           animate(800)
         ),
         transition('shrunken <=> *',
-          animate(500)
+          [
+            style({
+              'background-color': '#2cc2cc'
+            }),
+            animate(1000,
+              style({
+                'border-radius': '50px'
+              })
+            ),
+            animate(500)
+          ]
         )
       ]
     )
