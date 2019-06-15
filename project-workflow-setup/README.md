@@ -18,3 +18,18 @@
   rxjs  
   zone.js  
   core-js
+
+## Install Development Dependencies
+
+  - npm install --save-dev  
+    del-cli  
+    webpack  
+    typescript  
+    raw-loader  
+    html-loader  
+    webpack-merge  
+    webpack-dev-server  
+    html-webpack-plugin  
+    angular-router-loader  
+    angular2-template-loader  
+    awesome-typescript-loader  
