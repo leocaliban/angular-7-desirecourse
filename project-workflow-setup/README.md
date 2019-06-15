@@ -27,8 +27,11 @@
     typescript  
     raw-loader  
     html-loader  
+    webpack-cli  
     webpack-merge  
+    @ngtools/webpack  
     webpack-dev-server  
+    css-to-string-loader  
     html-webpack-plugin  
     angular-router-loader  
     angular2-template-loader  

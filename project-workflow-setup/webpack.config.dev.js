@@ -11,6 +11,7 @@ module.exports = webpackMerge(commonConfig, {
         filename: 'bundle.js',
         chunkFilename: '[id].chunk.js'
     },
+    mode: 'development',
     module: {
         rules: [
             {
