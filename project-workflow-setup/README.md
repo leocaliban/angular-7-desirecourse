@@ -28,6 +28,8 @@
     raw-loader  
     html-loader  
     webpack-cli  
+    @types/node  
+    @types/core-js  
     webpack-merge  
     @ngtools/webpack  
     webpack-dev-server  

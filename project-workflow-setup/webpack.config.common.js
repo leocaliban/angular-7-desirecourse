@@ -25,7 +25,7 @@ module.exports = {
     },
     plugins: [
         new ngw.AngularCompilerPlugin({
-            tsConfigPath: './tsconfig.json',
+            tsConfigPath: './tsconfig.aot.json',
             entryModule: './src/app/app.module#AppModule'
         }),
         new HtmlWebpackPlugin({
